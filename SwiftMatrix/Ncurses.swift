@@ -9,6 +9,8 @@
 import Foundation
 import Darwin.ncurses
 
+var matrix: Matrix?
+
 func initialize() {
     initscr() // init window
     savetty() // save state of terminal
@@ -20,8 +22,8 @@ func initialize() {
     curs_set(0)
     signal(SIGINT, exit)
     signal(SIGWINCH, refresh)
-    
-    refresh(SIGWINCH)
+    matrix = Matrix(columns: COLS, rows: LINES)
+    matrix?.animate()
 }
         
     
@@ -34,7 +36,8 @@ func start() {
         case Int32(UnicodeScalar("q").value):
             endwin()
             Darwin.exit(EX_OK)
-        default: true
+        default:
+            matrix?.animate()
         }
         
     }
@@ -48,8 +51,8 @@ func refresh(_ op: Int32) {
     refresh()
     clear()
     
-    let matrix = Matrix(columns: COLS, rows: LINES)
-    matrix.draw()
+    matrix = Matrix(columns: COLS, rows: LINES)
+    matrix?.animate()
     
 }
 
