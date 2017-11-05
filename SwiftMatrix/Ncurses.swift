@@ -9,43 +9,51 @@
 import Foundation
 import Darwin.ncurses
 
-struct Ncurses {
+func initialize() {
+    initscr() // init window
+    savetty() // save state of terminal
+    nonl()    // no newline
+    cbreak()  // disable line buffering
+    noecho()  //
+    timeout(0)
+    leaveok(stdscr, true)
+    curs_set(0)
+    signal(SIGINT, exit)
+    signal(SIGWINCH, refresh)
     
-    static func initialize() {
-        initscr()                   // Init window. Must be first
-        cbreak()
-        noecho()                    // Don't echo user input
-        nonl()                      // Disable newline mode
-        intrflush(stdscr, true)     // Prevent flush
-        keypad(stdscr, true)        // Enable function and arrow keys
-        curs_set(1)                 // Set cursor to invisible
+    refresh(SIGWINCH)
+}
         
-        
-        let matrix = MatrixService(columns: COLS, rows: LINES)
-        matrix.draw()
-        
-    }
     
-    static func refresh() {
-        
-    }
     
-    static func exit() {
+func start() {
+    while true {
         
-    }
-    
-    static func start() {
-        while true {
+        switch getch() {
             
-            switch getch() {
-                
-            case Int32(UnicodeScalar("q").value):
-                endwin()
-                Darwin.exit(EX_OK)
-            default: true
-            }
-            
+        case Int32(UnicodeScalar("q").value):
+            endwin()
+            Darwin.exit(EX_OK)
+        default: true
         }
+        
     }
+}
+
+
+
+func refresh(_ op: Int32) {
+    
+    endwin()
+    refresh()
+    clear()
+    
+    let matrix = Matrix(columns: COLS, rows: LINES)
+    matrix.draw()
     
 }
+
+func exit(_ op: Int32) {
+    
+}
+

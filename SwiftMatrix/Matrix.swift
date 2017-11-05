@@ -9,38 +9,40 @@
 import Foundation
 import Darwin.ncurses
 
-struct MatrixService {
+struct Matrix {
     
-    var matrix = [[Int32]]()
+    var grid = [[Int32]]()
+    var columns: Int = 0
+    var rows: Int = 0
     
     init(columns: Int32, rows: Int32) {
         
-        let columns = Int(columns)
-        let rows = Int(rows)
+        self.columns = Int(columns)
+        self.rows = Int(rows)
         
-        for column in 0 ..< columns {
+        for _ in 0 ..< self.columns {
             
-            var col = [Int32]()
+            var row = [Int32]()
             
-            for row in 0 ..< rows {
-                col.append(64)
+            for _ in 0 ..< self.rows {
+                
+                //if column % 2 == 0 {
+                row.append(Int32(UnicodeScalar("q").value))
+                
             }
             
-            matrix.append(col)
+            grid.append(row)
         }
         
     }
     
 }
 
-extension MatrixService {
+extension Matrix {
     
     func draw() {
         
-        let columns = matrix.count - 1
-        let rows = matrix[0].count - 1
-        
-        for i in 0 ..< columns {
+        for i in 0 ..< self.columns {
 
             let x = Int32(i)
             move(0, x)
@@ -48,12 +50,12 @@ extension MatrixService {
             let uint = UInt32(x)
             addch(uint)
 
-            for j in 0 ..< rows {
+            for j in 0 ..< self.rows {
 
                 let y = Int32(j)
                 move(y, x)
 
-                let uint = UInt32(matrix[i][j])
+                let uint = UInt32(grid[i][j])
                 addch(uint)
 
             }

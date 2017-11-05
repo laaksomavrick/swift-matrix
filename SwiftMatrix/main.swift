@@ -8,6 +8,6 @@
 
 import Foundation
 
-Ncurses.initialize()
-Ncurses.start()
+initialize()
+start()
 
