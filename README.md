@@ -3,4 +3,4 @@
 
 Currently being coded. I'll make this pretty when it's ready.
 
-![](https://i.imgur.com/PfnuGpS.mp4)
+![mp4](https://i.imgur.com/PfnuGpS.mp4)
