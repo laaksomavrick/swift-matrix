@@ -3,4 +3,4 @@
 
 Currently being coded. I'll make this pretty when it's ready.
 
-![img](https://imgur.com/PfnuGpS)
+![gif](https://imgur.com/PfnuGpS)
