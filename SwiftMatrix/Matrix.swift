@@ -18,10 +18,6 @@ class Matrix {
     var columns: Int = 0
     var rows: Int = 0
     
-    //every column needs a base and offset
-    var base = 0
-    var offset = 1
-    
     init(columns: Int32, rows: Int32) {
         
         self.columns = Int(columns)
@@ -57,11 +53,9 @@ extension Matrix {
     }
     
     func update() {
-        
         for i in 0 ..< columns {
             update_column(i)
         }
-    
     }
     
     private func update_column(_ column: Int) {
