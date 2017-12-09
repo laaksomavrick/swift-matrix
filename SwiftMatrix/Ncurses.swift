@@ -25,9 +25,7 @@ func initialize() {
     matrix = Matrix(columns: COLS, rows: LINES)
     matrix?.animate()
 }
-        
-    
-    
+
 func start() {
     while true {
         switch getch() {
@@ -37,11 +35,8 @@ func start() {
         default:
             matrix?.animate()
         }
-        
     }
 }
-
-
 
 func refresh(_ op: Int32) {
     
@@ -55,6 +50,7 @@ func refresh(_ op: Int32) {
 }
 
 func exit(_ op: Int32) {
-    
+    endwin()
+    Darwin.exit(EX_OK)
 }
 
