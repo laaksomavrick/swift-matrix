@@ -16,7 +16,7 @@ func initialize() {
     savetty() // save state of terminal
     nonl()    // no newline
     cbreak()  // disable line buffering
-    noecho()  //
+    noecho()
     timeout(0)
     leaveok(stdscr, true)
     curs_set(0)
@@ -30,9 +30,7 @@ func initialize() {
     
 func start() {
     while true {
-        
         switch getch() {
-            
         case Int32(UnicodeScalar("q").value):
             endwin()
             Darwin.exit(EX_OK)
