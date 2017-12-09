@@ -1,6 +1,6 @@
 # swift-matrix
-(WIP) The Matrix, in your terminal, built with Swift.
+The Matrix, in your terminal, built with Swift.
 
-Currently being coded. I'll make this pretty when it's ready.
+This is a beta version, but feel free to tinker or request a PR.
 
-![](https://i.imgur.com/PfnuGpS.gifv)
+![alt text](https://raw.githubusercontent.com/laaksomavrick/swift-matrix/master/Assets/swiftMatrix_example.gif)
