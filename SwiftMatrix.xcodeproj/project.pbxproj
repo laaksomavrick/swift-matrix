@@ -25,6 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6A733D2D1FDC7DB20041C345 /* swiftMatrix_example.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = swiftMatrix_example.gif; sourceTree = "<group>"; };
 		6A75F2211FAE1C7200C8DB0B /* SwiftMatrix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftMatrix; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A75F2241FAE1C7200C8DB0B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6A75F22B1FAE26A100C8DB0B /* Ncurses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ncurses.swift; sourceTree = "<group>"; };
@@ -42,9 +43,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A733D2C1FDC7D9B0041C345 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6A733D2D1FDC7DB20041C345 /* swiftMatrix_example.gif */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		6A75F2181FAE1C7200C8DB0B = {
 			isa = PBXGroup;
 			children = (
+				6A733D2C1FDC7D9B0041C345 /* Assets */,
 				6A75F2231FAE1C7200C8DB0B /* SwiftMatrix */,
 				6A75F2221FAE1C7200C8DB0B /* Products */,
 			);
